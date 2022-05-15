@@ -16,18 +16,21 @@ const users = [
 ];
 
 app.get("/login", (req, res) => {
+  console.log(req.headers);
+
   const token = req.headers.authorization;
+
   if (!token) res.sendStatus(401);
   const key = token.slice("Bearer ".length);
   if (!token) res.sendStatus(401);
   const user = users.find((user) => user.id == key);
 
   if (user) {
-    res.append('x-user-id', user.id)
-    res.append('x-user-firstname', user.firstName)
-    res.append('x-user-lastname', user.lastName)
-    res.sendStatus(200)
-    return
+    res.append("x-user-id", user.id);
+    res.append("x-user-firstname", user.firstName);
+    res.append("x-user-lastname", user.lastName);
+    res.sendStatus(200);
+    return;
   }
 
   res.sendStatus(401);
