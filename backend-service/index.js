@@ -6,7 +6,7 @@ const port = 3000;
 
 app.use(bodyParser.json());
 
-app.get("/public", (req, res) => {
+app.get("/api/public", (req, res) => {
   res.status(200).send({
     products,
     count: products.length,
@@ -14,7 +14,7 @@ app.get("/public", (req, res) => {
   });
 });
 
-app.post("/private", (req, res) => {
+app.post("/api/private", (req, res) => {
   console.log(req.headers);
   const userId = req.headers["x-user-id"],
     firstname = req.headers["x-user-firstname"],
