@@ -166,7 +166,7 @@ services:
     volumes:
       - ./backend-service:/app
     ports:
-      - "80:3000"
+      - "3001:3000"
     command: ["sh", "-c", "cd /app && npm install && npm start"]
     # networks:
     #   - kong-net
